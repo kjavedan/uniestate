@@ -91,6 +91,8 @@
   padding: 8px;
   padding-top: 50px;
   text-align: right;
+  cursor: pointer;
+
   span {
     display: block;
     font-family: var(--font-primary);

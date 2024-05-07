@@ -36,7 +36,6 @@ import ContactUs from "~/components/contact";
     font-size: 2rem;
     padding-right: 16px;
     text-transform: capitalize;
-    cursor: pointer;
   }
 }
 .right {

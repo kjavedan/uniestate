@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div @click="$router.push({ name: 'gallery' })" class="row cursor-pointer">
     <div class="left">
       <h2 class="underline">gallery</h2>
     </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 xl:p-0 row h-140 xl:h-70vh lg:items-center">
+  <div class="p-4 xl:p-0 row h-70svh md:h-120 xl:h-70vh lg:items-center">
     <div class="left xl:mt-[-50px]">
       <div class="font-[--font-primary] uniestate">
         <span class="uni"> Uni </span>
@@ -24,7 +24,7 @@
           experience since 1995 in the UAE.
         </p>
 
-        <RouterLink to="/" class="text-black xl:text-white"
+        <RouterLink to="/about" class="text-black xl:text-white"
           >Learn more about us
           <div class="i-f7:arrow-up-right"></div>
         </RouterLink>

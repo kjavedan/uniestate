@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row cursor-auto">
     <div class="left">
       <h2 class="cursor-auto">
         <span class="block"

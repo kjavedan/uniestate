@@ -1,5 +1,8 @@
 <template>
-  <div class="w-full row">
+  <div
+    @click="$router.push({ name: 'rent' })"
+    class="w-full row cursor-pointer"
+  >
     <div class="left">
       <h2 class="underline">rent</h2>
     </div>
