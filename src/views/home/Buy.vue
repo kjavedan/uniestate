@@ -1,6 +1,6 @@
 <template>
   <div
-    @click="$router.push({ name: 'buy' })"
+    @click="$router.push({ name: 'properties' })"
     class="w-full cursor-pointer row xl:mt-1"
   >
     <div class="left">

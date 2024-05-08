@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div
-      @click="isMenu = true"
-      class="bg-black p-3 rounded-full cursor-pointer"
-    >
+    <div @click="openMenu" class="bg-black p-3 rounded-full cursor-pointer">
       <div class="i-mingcute:menu-fill:menu" style="color: white"></div>
     </div>
 
@@ -11,7 +8,7 @@
       <div class="ml-15 flex items-center justify-between">
         <h3 class="font-light font-italic">navigation</h3>
         <div
-          @click="isMenu = false"
+          @click="closeMenu"
           class="w-3em h-3em flex ml-auto items-center justify-center rounded-full b-solid b-white cursor-pointer"
         >
           <div class="i-ic:round-close h-2em w-2em cursor-pointer"></div>
@@ -40,6 +37,16 @@ const route = useRoute();
 
 const isMenu = ref(false);
 
+// FUNCS
+const openMenu = () => {
+  isMenu.value = true;
+  document.body.style.overflow = "hidden";
+};
+
+const closeMenu = () => {
+  isMenu.value = false;
+  document.body.style.overflow = "";
+};
 // HOOKS
 watch(route, () => {
   isMenu.value = false;
@@ -57,7 +64,7 @@ watch(route, () => {
   left: -100vw;
   width: 100vw;
   height: 100vh;
-  z-index: 2;
+  z-index: 20;
   background-color: black;
   color: white;
   will-change: transform;

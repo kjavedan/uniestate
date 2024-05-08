@@ -1,10 +1,16 @@
 <template>
-  <div class="lg:ml-[11%]">
+  <div class="lg:ml-[10.5%]">
     <Filters :filters="filters" :handleChangeFilters="handleChangeFilters" />
     <div>
       <Property :propertiesData="filteredData" />
     </div>
-
+    <div
+      v-if="!filteredData.length"
+      class="w-90% md:w-300 my-10 xl:my-20 py-10 px-2 b-2 mx-auto flex items-center justify-center gap-2 b-dotted b-gray rounded-lg"
+    >
+      <div class="i-iconoir:file-not-found w-2em h-2em"></div>
+      <p class="text-center">There is no property with this criteria</p>
+    </div>
     <ContactUs />
   </div>
 </template>

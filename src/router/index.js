@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 import Home from '~/views/home'
-import Buy from "~/views/buy";
+import Properties from "~/views/properties";
+import Gallery from "~/views/gallery"
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,24 +13,14 @@ const router = createRouter({
             component: Home,
         },
         {
-            path: '/buy',
-            name: "buy",
-            component: Buy,
-        },
-        {
-            path: '/rent',
-            name: "rent",
-            component: Home,
-        },
-        {
-            path: '/projects',
-            name: "projects",
-            component: Home,
+            path: '/properties',
+            name: "properties",
+            component: Properties,
         },
         {
             path: '/gallery',
             name: "gallery",
-            component: Home,
+            component: Gallery,
         },
         {
             path: '/about',
@@ -42,6 +33,9 @@ const router = createRouter({
             component: Home,
         },
     ],
+    scrollBehavior(to, from, savedPosition) {
+        return { top: 0 }
+    }
 });
 
 export default router;

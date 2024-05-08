@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 lg:px-0">
+  <div class="p-4 lg:px-0 w-fit xl:ml-auto xl:mr-5% xl:flex xl:gap-20 xl:mt-6">
     <!-- ROW 1 -->
     <div class="flex items-center">
       <h4 class="text-lg font-[--font-primary] w-25">location:</h4>
@@ -17,7 +17,7 @@
     </div>
 
     <!-- ROW 2 -->
-    <div class="flex items-center mt-4">
+    <div class="flex items-center mt-4 xl:mt-0">
       <h4 class="text-lg font-[--font-primary] w-25">Type:</h4>
       <div
         v-for="item in filters.type"
