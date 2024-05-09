@@ -1,9 +1,12 @@
 <template>
   <button
+    @click="handleClick"
     :class="[
       {
         primary: variant === 'primary' && true,
         outline: variant === 'outline' && true,
+        small: size === 'small' && true,
+        large: size === 'large' && true,
       },
     ]"
   >
@@ -12,7 +15,13 @@
 </template>
 
 <script setup>
-defineProps({
+import { useRouter } from "vue-router";
+
+const props = defineProps({
+  id: {
+    type: Number,
+    required: true,
+  },
   title: {
     type: String,
     required: true,
@@ -21,14 +30,32 @@ defineProps({
     type: String,
     default: "primary",
     validator: (value) => {
-      return ["primary", "outline"].includes(value);
+      return ["primary", "outline", "filled"].includes(value);
+    },
+  },
+  goTo: {
+    type: String,
+  },
+  size: {
+    type: String,
+    default: "medium",
+    validator: (value) => {
+      return ["small", "medium", "large"].includes(value);
     },
   },
   onClick: {
     type: Function,
-    required: false,
   },
 });
+
+// NAVIGATION
+const router = useRouter();
+
+const handleClick = () => {
+  props.title === "map"
+    ? window.open(props.goTo, "_blank")
+    : router.push({ name: "propertyDetails", params: { id: props.id } });
+};
 </script>
 
 <style lang="scss" scoped>
@@ -45,7 +72,9 @@ button {
   overflow: hidden;
   background: #000000;
   color: ghostwhite;
-  font-family: (var(--font-primary));
+  font-family: Avenir;
+  font-weight: 300;
+
   &.primary {
     &::before {
       background: #1d1d1d;
@@ -62,6 +91,13 @@ button {
       &:hover {
         color: white;
       }
+    }
+  }
+
+  &.small {
+    font-size: 14px;
+    span {
+      padding: 0.4rem 0.8rem;
     }
   }
 }
@@ -87,8 +123,8 @@ button::after {
 
 button::before {
   content: "";
-  width: 128%;
-  left: -13%;
+  width: 132%;
+  left: -15%;
   transform: skew(30deg);
   transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
 }

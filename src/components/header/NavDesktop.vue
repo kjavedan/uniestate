@@ -6,7 +6,7 @@
         :key="item.label"
         :to="{ name: item.name }"
         :class="[
-          'nav-link whitespace-nowrap',
+          'nav-link whitespace-nowrap capitalize ',
           { active: route.name === item.name },
         ]"
         >{{ item.label }}</RouterLink

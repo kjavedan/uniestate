@@ -20,56 +20,19 @@ import ContactUs from "~/components/contact";
 import Filters from "./Filters.vue";
 import Property from "./Property.vue";
 
-import img1 from "../../assets/images/buy.jpg";
-import img2 from "../../assets/images/rent.jpg";
-import img3 from "../../assets/images/projects.jpg";
+import propertiesData from "~/data/propertiesData";
 
 import { ref, watch } from "vue";
 
 // DATA
-const propertiesData = ref([
-  {
-    id: 0,
-    title: "Union Tower",
-    address: " BUSINESS BAY, DUBAI",
-    description:
-      "Uniion Tower is located in the heart of the city, the bustling commercial and residential district of Dubai consisting of prestigious offices.",
-    img: img1,
-    imgRatio: "video",
-    location: "dubai",
-    type: "villa",
-  },
-  {
-    id: 1,
-    title: "Rak Tower",
-    address: " AL NAKEEL, RAS AL KHAIMAH",
-    description:
-      "RAK Tower is located in the heart of the city, the bustling commercial and residential district of Ras Al Khaimah consisting of prestigious offices.",
-    img: img2,
-    imgRatio: "video",
-    location: "rak",
-    type: "villa",
-  },
-  {
-    id: 2,
-    title: "Millennium Tower",
-    address: " AL NAKEEL, RAS AL KHAIMAH",
-    description:
-      "Millennium Tower is located in the heart of the city, the bustling commercial and residential district of Ras Al Khaimah consisting of prestigious offices.",
-    img: img3,
-    imgRatio: "portrait",
-    location: "rak",
-    type: "apartment",
-  },
-]);
-
-const filteredData = ref([...propertiesData.value]);
+const filteredData = ref([...propertiesData]);
 
 const filters = ref({
   location: [
     { value: "all", label: "All", path: "", isSelected: true },
     { value: "dubai", label: "Dubai", path: "", isSelected: false },
-    { value: "rak", label: "Rak", path: "", isSelected: false },
+    { value: "sharjah", label: "Sharjah", path: "", isSelected: false },
+    { value: "ajman", label: "Ajman", path: "", isSelected: false },
   ],
   type: [
     { value: "all", label: "All", path: "", isSelected: true },
@@ -96,12 +59,12 @@ watch(
   selectedFilters,
   () => {
     const newArr = [];
-    propertiesData.value.map((property) => {
+    propertiesData.map((property) => {
       if (
         (selectedFilters.value.location === "all" ||
-          selectedFilters.value.location === property.location) &&
+          selectedFilters.value.location === property.locationCity) &&
         (selectedFilters.value.type === "all" ||
-          selectedFilters.value.type === property.type)
+          selectedFilters.value.type === property.flatType)
       ) {
         newArr.push(property);
       }

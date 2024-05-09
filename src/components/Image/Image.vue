@@ -1,16 +1,21 @@
 <template>
-  <v-lazy-image
-    :src="src"
-    :alt="alt"
-    class="w-full"
-    @load="imageLoaded = true"
-  />
+  <div class="image-container relative">
+    <v-lazy-image
+      :src="src"
+      :alt="alt"
+      :class="[
+        'top-0 left-0 w-full h-full object-cover',
+        { 'xl:absolute': height === 'full' && true },
+      ]"
+      @load="imageLoaded = true"
+    />
+  </div>
 </template>
 
 <script setup>
 import VLazyImage from "v-lazy-image";
 
-defineProps({
+const props = defineProps({
   src: {
     type: String,
     required: true,
@@ -19,7 +24,11 @@ defineProps({
     type: String,
     required: true,
   },
+  height: {
+    type: String,
+  },
 });
+console.log(props);
 </script>
 
 <style lang="scss" scoped>

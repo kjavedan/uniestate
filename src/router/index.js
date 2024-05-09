@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from '~/views/home'
 import Properties from "~/views/properties";
 import Gallery from "~/views/gallery"
-
+import PropertyDetails from '~/views/details'
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
@@ -23,15 +23,10 @@ const router = createRouter({
             component: Gallery,
         },
         {
-            path: '/about',
-            name: "about",
-            component: Home,
-        },
-        {
-            path: '/contact',
-            name: "contact",
-            component: Home,
-        },
+            path: '/property/:id',
+            name: 'propertyDetails',
+            component: PropertyDetails
+        }
     ],
     scrollBehavior(to, from, savedPosition) {
         return { top: 0 }

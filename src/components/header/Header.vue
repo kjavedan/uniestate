@@ -24,8 +24,10 @@ const xlAndUp = breakpoints.greaterOrEqual("xl");
   color: var(--ep-text-color-primary);
   transition: all ease-in-out 0.1s;
   text-decoration: none;
-  font-weight: lighter;
-  color: #838383;
+  color: #111111;
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-family: Avenir;
   &:hover {
     color: var(--ep-color-primary);
   }
@@ -33,7 +35,7 @@ const xlAndUp = breakpoints.greaterOrEqual("xl");
   &.active {
     color: var(--ep-color-primary);
     text-decoration: underline;
-    font-weight: 500;
+    font-weight: bold;
   }
 }
 

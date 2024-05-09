@@ -1,14 +1,16 @@
 <template>
-  <div class="p-4 lg:px-0 w-fit xl:ml-auto xl:mr-5% xl:flex xl:gap-20 xl:mt-6">
+  <div
+    class="p-4 w-full xl:ml-auto xl:flex xl:gap-8 xl:w-57% bg-[--clr-gray-light]"
+  >
     <!-- ROW 1 -->
     <div class="flex items-center">
-      <h4 class="text-lg font-[--font-primary] w-25">location:</h4>
+      <h4 class="md:text-lg font-[--font-primary] w-23">location:</h4>
       <div
         v-for="item in filters.location"
         :key="item.name"
         @click="handleChangeFilters(item.value, 'location')"
         :class="[
-          'py-3 px-4 cursor-pointer',
+          'py-2 px-3 cursor-pointer',
           { 'bg-black text-white': item.isSelected },
         ]"
       >
@@ -18,13 +20,13 @@
 
     <!-- ROW 2 -->
     <div class="flex items-center mt-4 xl:mt-0">
-      <h4 class="text-lg font-[--font-primary] w-25">Type:</h4>
+      <h4 class="md:text-lg font-[--font-primary] w-23">Type:</h4>
       <div
         v-for="item in filters.type"
         :key="item.name"
         @click="handleChangeFilters(item.value, 'type')"
         :class="[
-          'py-3 px-4 cursor-pointer',
+          'py-2 px-3 cursor-pointer',
           { 'bg-black text-white': item.isSelected },
         ]"
       >

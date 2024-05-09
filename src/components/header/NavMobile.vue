@@ -19,7 +19,10 @@
           v-for="item in navData"
           :key="item.label"
           :to="{ name: item.name }"
-          :class="['nav-link', { active: route.name === item.name }]"
+          :class="[
+            'nav-link capitalize text-3xl color-gray',
+            { active: route.name === item.name },
+          ]"
           >{{ item.label }}</RouterLink
         >
       </ul>
@@ -49,7 +52,7 @@ const closeMenu = () => {
 };
 // HOOKS
 watch(route, () => {
-  isMenu.value = false;
+  closeMenu();
 });
 </script>
 

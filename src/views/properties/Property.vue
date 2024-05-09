@@ -3,13 +3,13 @@
     <div
       v-for="property in propertiesData"
       :key="property.id"
-      class="mb-20 xl:flex xl:flex-row-reverse xl:items-start xl:mb-1"
+      class="mb-20 xl:flex xl:flex-row-reverse xl:items-center xl:mb-1"
     >
       <Image
-        :src="property.img"
+        :src="property.propertyCover"
         :alt="property.title"
-        :ratio="property.imgRatio"
-        class="xl:w-57%"
+        class="xl:w-57% xl:h-100vh"
+        height="full"
       />
 
       <div class="px-8 py-2 xl:w-43% xl:px-0 property__info">
@@ -27,8 +27,13 @@
         </p>
 
         <div class="flex items-center gap-3 mt-8">
-          <Button title="details" />
-          <Button title="map" variant="outline" />
+          <Button :id="property.id" title="details" />
+          <Button
+            :id="property.id"
+            title="map"
+            variant="outline"
+            :goTo="property.googleLocation"
+          />
         </div>
       </div>
     </div>
@@ -46,29 +51,30 @@ defineProps(["propertiesData"]);
 <style lang="scss" scoped>
 .property__info {
   h3 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 }
 @media screen and (min-width: 900px) {
   .property__info {
     h3 {
       font-size: 3.5rem;
+      padding-right: 7rem;
     }
   }
 }
 
-@media screen and (min-width: 1400px) {
+// @media screen and (min-width: 1400px) {
+//   .property__info {
+//     h3 {
+//       font-size: 4rem;
+//     }
+//   }
+// }
+
+@media screen and (min-width: 1500px) {
   .property__info {
     h3 {
       font-size: 4rem;
-    }
-  }
-}
-
-@media screen and (min-width: 1700px) {
-  .property__info {
-    h3 {
-      font-size: 6rem;
     }
 
     p {

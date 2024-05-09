@@ -106,7 +106,7 @@
   }
 }
 
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1700px) {
   .hero__info {
     h2 {
       font-size: 5rem;
